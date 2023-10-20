@@ -1,5 +1,16 @@
+/**
+ * ENGLISH(英文)
+ * Warning, this file has been modified by the author himself to be compatible with the modular ES Module
+ * this behavior (MIT) https://opensource.org/license/mit/ and follow the original open source licenses have been granted to modify (modify) right,
+ * see https://github.com/kuankuan2007/node-process/tree/kuankuan2007 for repositorie
+ * 
+ * Chinese(中文)
+ * 警告，此文件经过了作者自己的修改，旨在兼容模块化ES Module
+ * 本行为遵循原开源协议(MIT https://opensource.org/license/mit/)，已被授予修改(modify)权利， 
+ * 仓库详见https://github.com/kuankuan2007/node-process/tree/kuankuan2007
+*/
 // shim for using process in browser
-var process = module.exports = {};
+var process = {};
 
 // cached from whatever global is present so that test runners that stub it
 // don't break things.  But we need to wrap it in a try catch in case it is
@@ -182,3 +193,9 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 process.umask = function() { return 0; };
+
+export default process
+
+if (typeof module!=="undefined"){
+    module.exports = process;
+}
